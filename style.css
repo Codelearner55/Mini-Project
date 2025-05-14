@@ -1,0 +1,115 @@
+*{ 
+    margin: 0;                   /* to remove all defaults and get a clean slate*/
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.main_box {
+    background-image: url(camera_bg.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+.btn_one i{
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    left: 16px;
+    line-height: 60px;
+    cursor: pointer; 
+    transition: all 0.3s linear;
+}
+.sidebar_menu {
+    position: fixed;         /* now it will not move when i will scroll */
+    left: -300px;            /* for animation, firstly we have to hide it */
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(255,255,255,0.1);
+    box-shadow: 0 0 6px rgba(255,255,255,0.5);
+    transition: all 0.3s linear;
+}
+.sidebar_menu .logo {
+    position: absolute;
+    width: 100%;               /* now it will take 100% width of its div having width 300px and height 100vh */
+    line-height: 60px;
+    box-shadow: 0 0 4px rgba(255,255,255,0.5);
+    height: 60px;              /* to apply box shadow, it should have some height */
+}
+.sidebar_menu .logo a {
+    position: absolute;
+    left: 50px;
+    color: white;
+    text-decoration: none;    /* to  remove the underline */
+    font-size: 20px;
+    font-weight: 500;
+}
+.sidebar_menu .btn_two i {
+    color: grey;
+    font-size: 25px;
+    line-height: 60px;
+    position: absolute;
+    left: 275px;
+    cursor: pointer;              /* hand symbol */
+    opacity: 0;                  /* it will be shown only after the checkbox is checked with the help of first btn */
+    transition: all 0.3s linear;
+}
+.sidebar_menu .menu {
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: 80px;
+}
+.sidebar_menu .menu li {
+    margin-top: 6px;
+    padding: 10px 20px;
+}
+.sidebar_menu .menu i,a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.sidebar_menu .menu i{
+    padding-right: 8px;
+}
+
+.sidebar_menu .social_media {
+    position: absolute;
+    bottom: 50px;
+    left: 25%;
+}
+.sidebar_menu .social_media i{
+    color: white;
+    opacity: 0.5;
+}
+
+#check {
+    display: none;
+}
+
+.sidebar_menu .menu li:hover {
+    box-shadow: 0 0 4px rgba(255,255,255,0.5);
+}
+
+.btn_one i:hover{
+    font-size: 40px;     /* it is not changing since it does not have a separate box or div. it is overlapped by the div of sidebar_menu } */
+}
+
+.btn_two i:hover{
+    font-size: 30px;
+}
+
+.sidebar_menu .social_media i:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#check:checked ~ .sidebar_menu {            /* ~ is used for combining siblings like here, if check is checked then sidebar_menu will change its property*/
+    left: 0;
+}
+ #check:checked ~ .btn_one i{
+    opacity: 0;
+ }
+
+#check:checked ~ .sidebar_menu .btn_two i {         /* since sidebar_menu is the sibling of check */
+    opacity: 1;
+}
+/* now putting a linear transition in sidebar_menu for smooth coming */
